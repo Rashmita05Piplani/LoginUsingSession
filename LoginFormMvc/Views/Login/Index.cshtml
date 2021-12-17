@@ -1,0 +1,49 @@
+﻿@model LoginFormMvc.Models.User
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<div class="row">
+    <div class="col-md-3 col-md-offset-5">
+        <div>
+            @using (Html.BeginForm("Index","Login",FormMethod.Post))
+            {
+                <table>
+                    <tr>
+                        <th> LOGIN </th>
+                    </tr>
+                    <tr>
+                        <td> @Html.LabelFor(model => model.username)</td>
+                        <td>
+                            @Html.TextBoxFor(model => model.username, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.username)
+                        </td>
+
+
+                    </tr> 
+                    <tr>
+                        <td> @Html.LabelFor(model => model.password)</td>
+                        <td> @Html.PasswordFor(model => model.password, new { htmlAttributes = new {@class ="form-control"} })
+                             @ViewBag.ErrorMessage
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="submit" value="Login" name="Login" class="btn btn-info" />
+
+                           
+                        </td>
+                        <td>
+                        <a href="/Login/Reset" class="btn btn-danger"> Reset </a>
+                        </td>
+
+                    </tr>
+
+                </table>
+            }
+        </div>
+    </div>
+
+</div>
